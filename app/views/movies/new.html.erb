@@ -1,33 +1,23 @@
-<%= form_for @movie do |f| %>
-  <% if @movie.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <h4>Errors:</h4>
-      <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_tag "/movies" do %>
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= label_tag :name %>
+    <%= text_field_tag 'movie[name]', nil, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :director %>
-    <%= f.text_field :director, class: 'form-control' %>
+    <%= label_tag :director %>
+    <%= text_field_tag 'movie[director]', nil, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :genre %>
-    <%= f.text_field :genre, class: 'form-control' %>
+    <%= label_tag :genre %>
+    <%= text_field_tag 'movie[genre]', nil, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :year %>
-    <%= f.number_field :year, class: 'form-control' %>
+    <%= label_tag :year %>
+    <%= text_field_tag 'movie[year]', nil, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url, class: 'form-control' %>
+    <%= label_tag :image_url %>
+    <%= text_field_tag 'movie[image_url]', nil, class: 'form-control' %>
   </div>
-  <%= f.submit "Create Movie", class: 'btn btn-default' %>
+  <%= submit_tag "Create Movie", class: 'btn btn-default' %>
 <% end %>
